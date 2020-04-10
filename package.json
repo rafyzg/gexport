@@ -1,0 +1,30 @@
+{
+  "name": "gexport",
+  "version": "1.0.0",
+  "description": "gexport is a Gmail emails export to database",
+  "main": "index.js",
+  "dependencies": {
+    "googleapis": "^39.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafyzg/gexport.git"
+  },
+  "keywords": [
+    "gmail",
+    "emails",
+    "sql",
+    "database",
+    "export"
+  ],
+  "author": "Refael Yzg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafyzg/gexport/issues"
+  },
+  "homepage": "https://github.com/rafyzg/gexport#readme"
+}
