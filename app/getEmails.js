@@ -1,17 +1,7 @@
 const { google } = require('googleapis');
 const reuseToken = require('./reuseToken');
 
-/**
- * Get Message with given ID.
- *
- * @param  {String} userId User's email address. The special value 'me'
- * can be used to indicate the authenticated user.
- * @param  {String} messageId ID of Message to get.
- * @param  {Function} callback Function to call when the request is complete.
- */
 
-var messagesId = [];
-var gmail;
 
 reuseToken().then((auth) => {
     let gmail = google.gmail({version: 'v1', auth});
@@ -31,22 +21,19 @@ reuseToken().then((auth) => {
                 console.log(i);
                 getMessageData(gmail, emails[i].email.id, emails[i].email.threadId);
             }
-                
-
-            //});
         }
 
     });
 });
 
-/*
-let i = 0;
-for(i < 3;i++;) {
-    console.log(i);
-    getMessageData(messagesId[i]);
-}
-*/
-
+/**
+ * Get Message with given ID.
+ *
+ * @param  {String} userId User's email address. The special value 'me'
+ * can be used to indicate the authenticated user.
+ * @param  {String} messageId ID of Message to get.
+ * @param  {Function} callback Function to call when the request is complete.
+ */
 function getMessageData(gmail, emailId, threadId)  {
 
     gmail.users.messages.get({

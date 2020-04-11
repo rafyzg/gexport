@@ -9,12 +9,12 @@ module.exports = () => {
       // Load client secrets from a local file.
       fs.readFile(CREDENTIALS_PATH, (err, credentialsContent) => {
         if (err) {
-          return reject('Error loading client secret file');
+          return reject(`Error loading client ${CREDENTIALS_PATH} file`);
         }
         const credentials = JSON.parse(credentialsContent);
         fs.readFile(TOKEN_PATH, (err, tokenContent) => {
           if (err) {
-            return reject('Error loading tokens');
+            return reject(`Error loading ${TOKEN_PATH}`);
           }
           const token = JSON.parse(tokenContent);
           const { client_secret, client_id, redirect_uris } = credentials.installed;
