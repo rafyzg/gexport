@@ -5,15 +5,16 @@
   "main": "index.js",
   "dependencies": {
     "googleapis": "^39.2.0",
+    "js-base64": "^2.5.2",
     "mysql2": "^2.1.0",
     "sequelize": "^5.21.6",
     "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {},
   "scripts": {
-    "db:migrate" : "cd db && npx sequelize db:migrate",
-    "start:emails" : "node index.js",
-    "init" : "npm run db:migrate && npm start:emails",
+    "db:migrate": "cd db && npx sequelize db:migrate",
+    "start:emails": "node index.js",
+    "init": "npm run db:migrate && npm start:emails",
     "test": "npm test"
   },
   "repository": {
