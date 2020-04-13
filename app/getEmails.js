@@ -1,10 +1,10 @@
 const { google } = require('googleapis');
-const reuseToken = require('./reuseToken');
+const { getAuth } = require('./reuseToken');
+const emailMiddleware = require('./middleware/email');
 
-
-
-reuseToken().then((auth) => {
+getAuth().then((auth) => {
     let gmail = google.gmail({version: 'v1', auth});
+
     gmail.users.messages.list({
         userId: 'me',
     }, (err, res) => {
@@ -15,14 +15,11 @@ reuseToken().then((auth) => {
             let i = 0;
             console.log(`Emails: ${emails.length} `);
             
-            //emails.forEach((email) => {
-            //messagesId.push(email.id);
-            for(i < 2; i++;) {
-                console.log(i);
-                getMessageData(gmail, emails[i].email.id, emails[i].email.threadId);
-            }
+            emails.forEach((email) => {
+                emailMiddleware.getMessageDataWithoutAttachment(gmail, email.id);
+                //break;
+            });
         }
-
     });
 });
 

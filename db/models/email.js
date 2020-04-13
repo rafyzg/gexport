@@ -15,11 +15,15 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        from: {
+        senderName: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        title: {
+        senderMail : {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        subject: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -34,6 +38,10 @@ module.exports = function (sequelize, DataTypes) {
         date: {
             type: DataTypes.DATE,
             allowNull: false
+        },
+        fileLink: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     });
 
